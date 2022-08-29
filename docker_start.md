@@ -22,6 +22,12 @@ docker run -p 3000:80 --rm --name [Container Name] [Name]:[Tag]
 docker run -p 3000:80 --rm --name node_js hundong:latest
 ```
 
+#### 1.1.2.1 Docker run bind/mount   
+
+```bash
+docker run -d -p 3000:80 --name feedback-app -v feedback:/app/feedback -v $(pwd):/app -v /app/node_modules feedback-app:latest
+```
+
 #### --rm 
 
 - this container will be removed after stop it.
@@ -57,3 +63,12 @@ docker rm [image ID] # remove container
 or 
 docker rm $(docker ps -qa) #all remvoe conatiner 
 ```
+
+### 1.1.5 docker logs
+
+- docker inner logging ( bash output )
+
+```bash   
+docker logs feedback-app
+``` 
+
